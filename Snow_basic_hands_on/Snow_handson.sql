@@ -17,8 +17,8 @@ create or replace table trips (
     bikeid integer,
     membership_type string,
     usertype string,
-    birth_year integer,
-    gender integer
+    birth_year string,
+    gender string
 );
 
 
@@ -182,7 +182,7 @@ create user test_user PASSWORD='abc123' DEFAULT_ROLE = custom_role DEFAULT_WAREH
 grant role custom_role to user test_user;
 
 /* 역할에 권한 부여 */
-GRANT ALL ON DATABASE CITIBIKE TO ROLE CUSTOM_ROLE;
+GRANT ALL ON DATABASE CITIBIKE TO ROLE ab;
 GRANT ALL ON ALL SCHEMAS IN DATABASE CITIBIKE TO ROLE CUSTOM_ROLE;
 GRANT ALL ON TABLE CITIBIKE.PUBLIC.TRIPS TO ROLE CUSTOM_ROLE;
 GRANT USAGE ON WAREHOUSE COMPUTE_WH TO ROLE CUSTOM_ROLE;
@@ -192,5 +192,3 @@ SHOW GRANTS TO ROLE CUSTOM_ROLE;
 USE DATABASE CITIBIKE;
 USE SCHEMA PUBLIC;
 SELECT * FROM TRIPS LIMIT 10;
-
-
